@@ -14,8 +14,8 @@ if (!empty($_POST)) {
         $rover->setDateValue($_POST['date']);
         $rover->setCameraType($_POST['cameraType']);
 
-        var_dump($rover->getData());
-
+        $obj = $rover->getData()['photos'];
+        
     } catch (Throwable $t) {
         echo $t;
     }
@@ -77,6 +77,12 @@ if (!empty($_POST)) {
         </form>
     </div>
 
+
+    <?php foreach ($obj as $o) : ?>
+        <div class="test">
+            <img src="<?php echo $o['img_src']; ?>" alt="test">
+        </div>
+    <?php endforeach; ?>
 </body>
 
 </html>
