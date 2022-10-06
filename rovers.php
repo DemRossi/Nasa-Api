@@ -54,7 +54,7 @@ if (!empty($_POST)) {
                 <label for="dateType">Day Type</label>
                 <select name="dateType">
                     <option value="sol">Sol</option>
-                    <option value="earth">Earth day</option>
+                    <option value="earth_date">Earth day</option>
                 </select>
             </div>
             <div class="input__rover-setting--date">

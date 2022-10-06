@@ -9,6 +9,7 @@
         public function getData(){
 
             $ch = curl_init($this->buildUrl());
+
             curl_setopt($ch, CURLOPT_HTTPGET, true);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
