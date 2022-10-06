@@ -11,6 +11,14 @@
     <?php include_once 'includes/head.inc.php'; ?>
 </head>
 <body>
-    <h1><?php echo $text; ?></h1>
+    <header>
+        <div class="logo"></div>
+        <div class="title"></div>
+        <div class="nav">
+            <li><a href="/Nasa-Api/rovers.php">Mars Rover Pictures</a></li>
+        </div>
+    </header>
+    <main></main>
+    <footer></footer>
 </body>
 </html>
