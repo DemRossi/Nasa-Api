@@ -1,9 +1,6 @@
 <?php 
     //Connectie classes
     require_once 'bootstrap/bootstrap.php';
-
-    $test = new Test();
-    $text = $test->getTest();
     
 ?><!DOCTYPE html>
 <html lang="en">
