@@ -2,6 +2,24 @@
 //Connectie classes
 require_once 'bootstrap/bootstrap.php';
 
+if (!empty($_POST)) {
+    if (empty($_POST['date'])) {
+        $error = "Fill in all fields!";
+    }
+
+    try {
+        $rover = new Rover();
+        $rover->setName($_POST['rover']);
+        $rover->setDateType($_POST['dateType']);
+        $rover->setDateValue($_POST['date']);
+        $rover->setCameraType($_POST['cameraType']);
+
+        var_dump($rover->getData());
+
+    } catch (Throwable $t) {
+        echo $t;
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -17,6 +35,13 @@ require_once 'bootstrap/bootstrap.php';
 <body>
     <div class="input__rover-settings-wrapper">
         <form action="" method="post">
+            <?php if (isset($error)) : ?>
+                <div class="form__error">
+                    <p>
+                        <?php echo $error; ?>
+                    </p>
+                </div>
+            <?php endif; ?>
             <div class="input__rover-setting--rover">
                 <label for="rover">Choose rover: </label>
                 <select name="rover">
@@ -34,7 +59,7 @@ require_once 'bootstrap/bootstrap.php';
             </div>
             <div class="input__rover-setting--date">
                 <label for="date">Date of Sol value </label>
-                <input class="input__settings" type="text" name="date" placeholder="">
+                <input class="input__settings" type="text" name="date">
             </div>
             <div class="input__rover-setting--camera-type">
                 <label for="cameraType">Camera Type</label>
@@ -45,6 +70,9 @@ require_once 'bootstrap/bootstrap.php';
                     <option value="RHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="NAVCAM">Navigation Camera</option>
                 </select>
+            </div>
+            <div class="form--btn">
+                <input type="submit" name="submit" value="Show Rover">
             </div>
         </form>
     </div>
