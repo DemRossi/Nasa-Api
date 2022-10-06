@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
     <?php include_once 'includes/head.inc.php'; ?>
+    <title>Nasa Api - Home</title>
 </head>
 <body>
     <header>

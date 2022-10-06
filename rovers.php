@@ -15,7 +15,7 @@ if (!empty($_POST)) {
         $rover->setCameraType($_POST['cameraType']);
 
         $obj = $rover->getData()['photos'];
-        
+
     } catch (Throwable $t) {
         echo $t;
     }
@@ -26,10 +26,8 @@ if (!empty($_POST)) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rovers</title>
+    <?php include_once 'includes/head.inc.php'; ?>
+    <title>Nasa Api - Rovers</title>
 </head>
 
 <body>
@@ -77,12 +75,13 @@ if (!empty($_POST)) {
         </form>
     </div>
 
-
-    <?php foreach ($obj as $o) : ?>
-        <div class="test">
-            <img src="<?php echo $o['img_src']; ?>" alt="test">
-        </div>
-    <?php endforeach; ?>
+    <?php if (isset($obj)) : ?>
+        <?php foreach ($obj as $o) : ?>
+            <div class="test">
+                <img src="<?php echo $o['img_src']; ?>" alt="test">
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </body>
 
 </html>
