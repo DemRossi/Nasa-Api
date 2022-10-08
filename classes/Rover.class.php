@@ -1,89 +1,101 @@
-<?php 
-    define("BASE_URL", "https://api.nasa.gov/mars-photos/api/v1/rovers/");
-    class Rover {
-        private $name;
-        private $dateType;
-        private $dateValue;
-        private $cameraType;
+<?php
+define("BASE_URL", "https://api.nasa.gov/mars-photos/api/v1/rovers/");
+class Rover
+{
+	private $name;
+	private $dateType;
+	private $dateValue;
+	private $cameraType;
 
-        public function getData(){
+	public function getData()
+	{
 
-            $ch = curl_init($this->buildUrl());
+		var_dump($this->buildUrl());
+		$ch = curl_init($this->buildUrl());
 
-            curl_setopt($ch, CURLOPT_HTTPGET, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPGET, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-            $res = curl_exec($ch);
-            curl_close($ch);
+		$res = curl_exec($ch);
+		curl_close($ch);
 
-            return json_decode($res, true);
-        }
+		return json_decode($res, true);
+	}
 
-        private function buildUrl(){
-            $config = ConfigUtil::getConfig();
-            $key = $config['api_key'];
+	private function buildUrl()
+	{
+		$config = ConfigUtil::getConfig();
+		$key = $config['api_key'];
 
-            return BASE_URL . $this->name . "/photos?" . $this->dateType . "=" 
-                . $this->dateValue . "&api_key=" . $key; 
-        }
+		return BASE_URL . $this->name . "/photos?" . $this->dateType . "="
+			. $this->dateValue . "&api_key=" . $key;
+	}
 
-    	/**
+	/**
 	 * @return mixed
 	 */
-	function getCameraType() {
+	function getCameraType()
+	{
 		return $this->cameraType;
 	}
-	
+
 	/**
 	 * @param mixed $cameraType 
 	 * @return Rover
 	 */
-	function setCameraType($cameraType): self {
+	function setCameraType($cameraType): self
+	{
 		$this->cameraType = $cameraType;
 		return $this;
 	}
 	/**
 	 * @return mixed
 	 */
-	function getDateValue() {
+	function getDateValue()
+	{
 		return $this->dateValue;
 	}
-	
+
 	/**
 	 * @param mixed $dateValue 
 	 * @return Rover
 	 */
-	function setDateValue($dateValue): self {
+	function setDateValue($dateValue): self
+	{
 		$this->dateValue = $dateValue;
 		return $this;
 	}
 	/**
 	 * @return mixed
 	 */
-	function getName() {
+	function getName()
+	{
 		return $this->name;
 	}
-	
+
 	/**
 	 * @param mixed $name 
 	 * @return Rover
 	 */
-	function setName($name): self {
+	function setName($name): self
+	{
 		$this->name = $name;
 		return $this;
 	}
 	/**
 	 * @return mixed
 	 */
-	function getDateType() {
+	function getDateType()
+	{
 		return $this->dateType;
 	}
-	
+
 	/**
 	 * @param mixed $dateType 
 	 * @return Rover
 	 */
-	function setDateType($dateType): self {
+	function setDateType($dateType): self
+	{
 		$this->dateType = $dateType;
 		return $this;
 	}
