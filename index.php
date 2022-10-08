@@ -13,7 +13,7 @@
         <div class="logo"></div>
         <div class="title"></div>
         <div class="nav">
-            <li><a href="/Nasa-Api/rovers.php">Mars Rover Pictures</a></li>
+            <li><a href="./rovers.php">Mars Rover Pictures</a></li>
         </div>
     </header>
     <main></main>

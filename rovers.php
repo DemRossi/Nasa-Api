@@ -15,7 +15,6 @@ if (!empty($_POST)) {
         $rover->setCameraType($_POST['cameraType']);
 
         $obj = $rover->getData()['photos'];
-
     } catch (Throwable $t) {
         echo $t;
     }
