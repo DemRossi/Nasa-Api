@@ -1,0 +1,14 @@
+.parameters__wrapper{
+    margin-top: 3em;
+}
+.parameters__btn .btn{
+    display: block;
+    margin: 0 auto;
+}
+.data__wrapper{
+    width: 100%;
+    margin: 1.5em 0;
+}
+.data__wrapper .card{
+    margin: 1.5em 0;
+}

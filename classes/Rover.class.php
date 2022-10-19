@@ -9,8 +9,6 @@ class Rover
 
 	public function getData()
 	{
-
-		var_dump($this->buildUrl());
 		$ch = curl_init($this->buildUrl());
 
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
